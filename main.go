@@ -30,12 +30,16 @@ func main() {
 	fileScan.Split(bufio.ScanLines)
 
 	fmt.Println("Starting decryption...")
-
+	var retval bool
 	for fileScan.Scan() {
-		retval := functions.SelectAlgorithm(referenceHash, fileScan.Text(), algo)
+		retval = functions.SelectAlgorithm(referenceHash, fileScan.Text(), algo)
 		if retval {
-			fmt.Println("Match!", fileScan.Text())
 			break
 		}
+	}
+	if retval {
+		fmt.Println("Match! >> ", fileScan.Text())
+	} else {
+		fmt.Println("No Match Found")
 	}
 }
