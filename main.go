@@ -10,7 +10,7 @@ import (
 
 func main() {
 	if len(os.Args) != 4 {
-		log.Fatal("Usage: dehash [wordlist] [hash] [algorithm]")
+		log.Fatal("Usage: dehash [wordlist] [algorithm] [hash]")
 	}
 	fileNamePath := os.Args[1]
 	algo := os.Args[2]
